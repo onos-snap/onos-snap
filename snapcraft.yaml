@@ -13,14 +13,16 @@ apps:
     command: onos
     plugs:
       - network
-      - network-bind
-      - network-observe
+  form-cluster:
+    command: form-cluster
+    plugs:
+      - network
   service:
     command: service
+    daemon: simple
     plugs:
       - network
       - network-bind
-      - network-observe
 
 parts:
   jre:
