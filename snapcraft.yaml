@@ -11,4 +11,4 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 parts:
   onos:
     source: https://gerrit.onosproject.org/onos.git
-    plugin: maven
+    plugin: x-onos-buck
