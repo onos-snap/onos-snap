@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+if [ -z "$SNAP_DATA" ]; then
+  echo "Run this from a snap context" >&2
+  exit 1
+fi
+
+ONOS_HOME="$SNAP_DATA/home"
+rm -rf "$ONOS_HOME"
+mkdir "$ONOS_HOME"
+rsync -a "$SNAP/" "$ONOS_HOME/"
+
+export JAVA_HOME=$SNAP/usr/lib/jvm/default-java
+cd "$ONOS_HOME"
+exec bin/onos-service
