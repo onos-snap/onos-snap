@@ -1,0 +1,14 @@
+name: onos
+version: 0.0
+summary: ONOS SDN
+description: |
+  The Open Network Operating System (ONOS) is a software defined networking
+  (SDN) OS for service providers that has scalability, high availability, high
+  performance and abstractions to make it easy to create apps and services.
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+parts:
+  onos:
+    source: https://gerrit.onosproject.org/onos.git
+    plugin: maven
