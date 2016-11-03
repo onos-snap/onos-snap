@@ -5,10 +5,27 @@ description: |
   The Open Network Operating System (ONOS) is a software defined networking
   (SDN) OS for service providers that has scalability, high availability, high
   performance and abstractions to make it easy to create apps and services.
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+grade: stable
+confinement: strict
+
+apps:
+  onos:
+    command: onos
+    plugs:
+      - network
+  service:
+    command: service
+    plugs:
+      - network
 
 parts:
+  jre:
+    plugin: nil
+    stage-packages: [default-jre-headless]
+  wrappers:
+    plugin: dump
+    source: wrappers/
+    stage-packages: [rsync]
   onos:
     source: https://gerrit.onosproject.org/onos.git
     plugin: x-onos-buck
