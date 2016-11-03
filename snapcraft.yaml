@@ -13,10 +13,14 @@ apps:
     command: onos
     plugs:
       - network
+      - network-bind
+      - network-observe
   service:
     command: service
     plugs:
       - network
+      - network-bind
+      - network-observe
 
 parts:
   jre:
@@ -27,5 +31,7 @@ parts:
     source: wrappers/
     stage-packages: [rsync]
   onos:
-    source: https://gerrit.onosproject.org/onos.git
-    plugin: x-onos-buck
+    #source: https://gerrit.onosproject.org/onos.git
+    #plugin: x-onos-buck
+    source: ../tar/onos-1.7.1
+    plugin: dump
