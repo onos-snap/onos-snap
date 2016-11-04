@@ -1,5 +1,5 @@
 name: onos
-version: 0.0
+version: 1.7.1
 summary: ONOS SDN
 description: |
   The Open Network Operating System (ONOS) is a software defined networking
@@ -34,6 +34,8 @@ parts:
     stage-packages: [rsync]
   onos:
     #source: https://gerrit.onosproject.org/onos.git
-    #plugin: x-onos-buck
-    source: ../tar/onos-1.7.1
-    plugin: dump
+    source: https://github.com/opennetworkinglab/onos/archive/1.7.1.tar.gz
+    plugin: x-onos-buck
+    #source: ../tar/onos-1.7.1
+    #plugin: dump
+    build-packages: [python, default-jdk-headless, zip, unzip]
