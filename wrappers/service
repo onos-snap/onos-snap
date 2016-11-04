@@ -14,4 +14,4 @@ rsync -a "$SNAP/" "$ONOS_HOME/"
 
 export JAVA_HOME=$SNAP/usr/lib/jvm/default-java
 cd "$ONOS_HOME"
-exec bin/onos-service
+exec bin/onos-service server
