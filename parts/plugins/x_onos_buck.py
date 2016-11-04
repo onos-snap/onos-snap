@@ -5,7 +5,6 @@ class XOnosBuck(snapcraft.BasePlugin):
     def build(self):
         super().build()
         os.environ['ONOS_ROOT'] = self.builddir
-        print(os.environ['ONOS_ROOT'])
         command = ['tools/build/onos-buck']
         command.extend(['build', 'onos'])
         self.run(command)
