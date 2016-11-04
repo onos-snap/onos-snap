@@ -12,6 +12,11 @@ rm -rf "$ONOS_HOME"
 mkdir "$ONOS_HOME"
 rsync -a "$SNAP/" "$ONOS_HOME/"
 
+M2_REPO="$SNAP_DATA/m2"
+export M2_REPO
+mkdir -p "$M2_REPO"
+
 export JAVA_HOME=$SNAP/usr/lib/jvm/default-java
+export HOME="$ONOS_HOME"
 cd "$ONOS_HOME"
 exec bin/onos-service server
